@@ -57,5 +57,6 @@ memory:
 	avr-size -C --mcu=atmega328p -f 16000000 main.elf
 
 auto: clean
+	echo `clear`
 	make && make upload
 	avr-size -C --mcu=atmega328p main.elf
