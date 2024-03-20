@@ -145,8 +145,7 @@ int main(void)
 	MAX7219_MatrixUpdate();	
 	
 	// rx buffer
-	char rx_buf[SIZE] = {};
-	char words[6][10];
+	char rx_buf[SIZE];
 	char data;
 	int i,j = 0;
 
@@ -199,7 +198,7 @@ int main(void)
 				
 				while(*token)
 				{					
-					strcpy((char *)&words[i++], token);
+					strcpy((char *)&rx_buf[i++], token);
 					token = strtok(NULL, s);
 				}
 
