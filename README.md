@@ -18,4 +18,10 @@ I've attempted to use push buttons instead, but there was unusual issues with th
 * [MAX7219 Library](https://github.com/eziya/AVR_MAX7219_MATRIX/tree/master)
 * [RTC Library](https://github.com/akafugu/ds_rtc_lib)
 
+## Resource
+* [ISP Circuit](https://www.kanda.com/avr-isp-circuits.html)
+  
+## Schematic
+![schematic](./hand_drawn_schematic.jpg)
+
 Although uncompleted in a way, I felt this project needed to stop here. As there is much I needed to learn about the AVR microcontrollers. 
