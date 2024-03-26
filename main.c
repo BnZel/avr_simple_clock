@@ -95,30 +95,34 @@ void check_day_night(struct tm *t, int tens_hour, int ones_hour, int am_pm, int 
 		// update the hour portion only
 		// if daytime is set to false from the start
 		// then set to true (viceversa) and display appropriate 
-		// icons for day and night  
+		// icons for day and night
+		if(tens_hour == 1 && ones_hour == 2){
+
+			if(t->am==true && am_pm==false){
+
+				// night time
+				t->am = false;
+				day_or_night = 9;
+
+				MAX7219_MatrixSetRow64(0, pgm_read_64((void *)&symbol[day_or_night]));
+				MAX7219_MatrixUpdate();
+			}
+			else{
+				// daytime
+				t->am = true;
+				am_pm = t->am;
+				day_or_night = 8;
+
+				MAX7219_MatrixSetRow64(0, pgm_read_64((void *)&symbol[day_or_night]));
+				MAX7219_MatrixUpdate();
+			}
+		}
 		if(tens_hour == 1 && ones_hour == 3){
 
 			tens_hour = 0;
 			ones_hour = 1;
 
 			rtc_set_time_s(ones_hour, t->min, t->sec);
-
-			// daytime
-			t->am = true;
-			am_pm = t->am;
-			day_or_night = 8;
-
-			MAX7219_MatrixSetRow64(0, pgm_read_64((void *)&symbol[day_or_night]));
-			MAX7219_MatrixUpdate();
-		}
-		else if(t->am==true && am_pm==false){
-
-			// night time
-			t->am = false;
-			day_or_night = 9;
-
-			MAX7219_MatrixSetRow64(0, pgm_read_64((void *)&symbol[day_or_night]));
-			MAX7219_MatrixUpdate();
 		}
 }
 //=====================END MISC=====================
