@@ -4,7 +4,7 @@ An experiment using chained LED matrices with an ATMega328P
 
 ## Hardware
 * ATmega328P @ 16 MHz
-* 4x - MAX7219
+* 6x - MAX7219
 * DS3231 RTC Module
 
 ### Unused 
